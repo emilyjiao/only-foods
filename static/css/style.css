@@ -1,0 +1,24 @@
+.navi {
+    background-color:rgba(244, 208, 145, 0.603)
+}
+.card {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30rem;
+    margin-bottom: 3em;
+}
+
+form {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30rem;
+}
+
+.post {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30rem;
+}

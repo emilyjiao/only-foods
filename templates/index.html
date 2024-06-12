@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Only Foods</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="static/css/style.css">
+  </head>
+  <body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    
+    <!-- navigaation bar -->
+    <nav class=" navi navbar shadow sticky-top navbar-expand-lg navbar-light p-3">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Only Foods</a>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="signup">Sign up</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <br>
+      <br>
+
+    <button type="button" class="post btn btn-light" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Start a post
+    </button>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <form action = "http://127.0.0.1:5000" method = "POST">
+                <div class="mb-3">
+                    <br>
+                    <label for="postimg" class="form-label">Upload an image!</label>
+                    <input type="file" class="form-control" id="postimg" name="postimg">
+                    <br>
+                    <label for="posttitle" class="form-label">Recipe Title</label>
+                    <input type="text" class="form-control" id="posttitle" name="posttitle">
+                    
+                    <label for="postbody" class="form-label">Share your recipe!</label>
+                    <input type="text" class="form-control" id="postbody" name="postbody">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Post</button>
+                </div>
+            </form>
+
+        </div>
+        </div>
+    </div>
+    <br>
+
+    <!--Posts-->
+    {% for i in range(posts.__len__()-1,-1,-1) %}
+        <div class="card">
+            <img src= "https://food.fnr.sndimg.com/content/dam/images/food/fullset/2021/02/05/Baked-Feta-Pasta-4_s4x3.jpg.rend.hgtvcom.1280.960.suffix/1615916524567.jpeg" class="card-img-top" alt="insert pic">
+            <div class="card-body">
+                <h5 class="card-title">{{posts[i]['posttitle']}}</h5>
+                <p class="card-text">{{posts[i]['postbody']}}</p>
+            </div>
+        </div>
+            <br>
+            <br>
+    {% endfor %}
+
+  </body>
+</html>
